@@ -3,28 +3,24 @@ import numpy as np
 import tensorflow as tf
 from tensorflow_core.python.keras.layers.core import Dense
 
-print(tf.__version__)
+from KNN import evaluateKNN
 
+print(tf.__version__)
 
 # Now we can load the MNIST dataset using the Keras helper function.
 mnist = tf.keras.datasets.mnist
 np_utils = tf.keras.utils
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 
-print(x_train[0])
+print(y_test[0])
 
-print(len(x_train))
-print(len(x_train[0]))
-print(len(x_train[1]))
-print(len(y_train))
-print(len(x_test))
-print(len(y_test))
+# evaluateKNN(x_train, x_test)
 
-plt.imshow(x_train[0],cmap=plt.cm.binary)
-plt.imshow(x_train[1],cmap=plt.cm.binary)
-plt.imshow(x_train[2],cmap=plt.cm.binary)
+plt.imshow(x_train[0], cmap=plt.cm.binary)
+# plt.imshow(x_train[1], cmap=plt.cm.binary)
+# plt.imshow(x_test[0], cmap=plt.cm.binary)
+plt.interactive(False)
 plt.show()
-
 # x_train = tf.keras.utils.normalize(x_train, axis=1)
 # x_test = tf.keras.utils.normalize(x_test, axis=1)
 #
