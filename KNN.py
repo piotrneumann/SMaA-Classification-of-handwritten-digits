@@ -13,6 +13,8 @@ def predict_test():
 
     start_time = time.time()
     y_pred = predict(TEST_DATA[0][29000:])
+    t = TEST_DATA[0][29000:]
+    print(y_pred)
     print("--- %s seconds ---" % (time.time() - start_time))
     print("Blad wynosi:", error(y_pred, TEST_DATA[1][29000:]))
 
