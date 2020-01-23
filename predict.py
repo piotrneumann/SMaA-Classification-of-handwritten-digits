@@ -33,6 +33,11 @@ def predict(x):
         prediction[i,0] = y_train[np.argmin(hamm_dist[i,:])]
     return prediction
 
+
+def my_predict(x_train, y_train, x_test, y_test):
+    print(x_train[0])
+    pass
+
 def hamming_distance(X, X_train):
 
     N1 = len(X[:,0])

@@ -1,20 +1,24 @@
 import pickle as pkl
 import warnings
 import time
-
-from predict import predict
+import tensorflow as tf
+from predict import predict, my_predict
 
 TEST_DATA = pkl.load(open('train.pkl', mode='rb'))
 
 def error(y_pred, y_true):
     return sum(y_pred != y_true)/len(y_pred)
 
-def predict_test():
 
+
+
+def predict_test():
+    mnist = tf.keras.datasets.mnist
+    np_utils = tf.keras.utils
+    # (x_train, y_train), (x_test, y_test) = mnist.load_data()
+    # my_predict(x_train, y_train, x_test, y_test)
     start_time = time.time()
     y_pred = predict(TEST_DATA[0][29000:])
-    t = TEST_DATA[0][29000:]
-    print(y_pred)
     print("--- %s seconds ---" % (time.time() - start_time))
     print("Blad wynosi:", error(y_pred, TEST_DATA[1][29000:]))
 
